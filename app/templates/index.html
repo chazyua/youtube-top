@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>YouTube's TOP 10</title>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+  $(window).on('load',function(){
+    if (!sessionStorage.getItem('shown-modal')){
+      $('#myModal').modal('show');
+      sessionStorage.setItem('shown-modal', 'true');
+  }
+  });
+</script> 
+
+    <link href="{{ url_for('static', filename='css/main.css') }}" rel="stylesheet">
+  </head>
+  <body>
+
+<main role="main">
+    
+              <div class="container">
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <p>Type your query to see top 10 today's videos<br><br>
+                          or simply hit the Youtube icon</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Let's Go !</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+    <div class="row">
+        <div class="col-sm-5 bigone mt-2">
+                {% for video in videos[0:1] %}
+                <p class="lead text-muted text-center mb-1">The most popular video today</p>
+                <div class="card mb-4 shadow-sm">
+                  <img class="bd-placeholder-img card-img-top" width="100%" src="{{ video.thumbnail }}"
+                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+                  <div class="card-body">
+                    <p class="card-text">{{ video.title }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a>
+                      </div>
+                      <small class="text-muted">{{ video.duration }} mins</small>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+        </div>
+        <div class="col-sm-6">
+            <section class="jumbotron text-center">
+                <p class="display-4 lead text-muted text-center">Today's top of Youtube</p>
+                <div class="col-md-12 align-top div2">
+                  <div class="container">
+                    <h1 class="jumbotron-heading"></h1>
+                    <form method="POST">
+                      <div class="input-group mt-3">
+                        <input type="text" name="query" class="form-control">
+                        <button type="submit" name="submit" value="search" class="btn"><img class="butt"
+                            src="{{ url_for('static', filename='img/yt.png') }}" alt="Submit"></button>
+                      </div>
+                      <p>
+                      </p>
+                    </form>
+                  </div>
+                </div>
+              </section> 
+        </div>
+      </div>
+  
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        {% for video in videos[1:11] %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ video.thumbnail }}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
+            <div class="card-body">
+              <p class="card-text">{{ video.title }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a type="button" href="{{ video.url }}" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+                <small class="text-muted">{{ video.duration }} mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+</body>
+</html>

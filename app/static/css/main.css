@@ -1,0 +1,68 @@
+.jumbotron {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-bottom: 0;
+    background-color: #fff;
+  }
+  @media (min-width: 768px) {
+    .jumbotron {
+      padding-top: 3rem;
+      padding-bottom: 3rem;
+    }
+  }
+  
+  .jumbotron p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .jumbotron-heading {
+    font-weight: 300;
+  }
+  
+  .jumbotron .container {
+    max-width: 40rem;
+  }
+  
+  footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  footer p {
+    margin-bottom: .25rem;
+  }
+
+  .bd-placeholder-img {
+    font-size: 1rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3rem;
+    }
+  }
+
+  .btn, form-control {
+    display: inline-block;
+  }
+
+  .butt {
+    height: 1.5em;
+    margin: 0;
+    padding: 0;
+  }
+
+.bigone {
+  padding: 2em;
+}
+
+@media (min-width: 768px) {
+  .bogone {
+    padding: 2em;
+    margin: none;
+  }
+}
